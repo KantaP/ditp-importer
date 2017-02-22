@@ -1,0 +1,26 @@
+page-categories {
+
+}
+
+.category-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.category-menu {
+    width: 50%;
+    height: 10vh;
+    font-size: 3vw;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+    span {
+        text-align: center;
+    }
+    
+}

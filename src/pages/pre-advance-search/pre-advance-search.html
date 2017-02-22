@@ -1,0 +1,110 @@
+<!--
+  Generated template for the AdvanceSearch page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>SEARCH</ion-title>
+      <ion-buttons start>
+      <button ion-button icon-only color="light" (click)="dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-grid class="padding-5 margin-top-30">
+    <ion-row center>
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Type</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="type">
+          <option value="" selected>Please select type</option>
+          <option [value]="data.id" *ngFor="let data of typeData">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Year</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="year" (change)="fetchFair($event)">
+          <option value="" selected>Please select year</option>
+          <option [value]="data.id" *ngFor="let data of yearData">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Fair</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="fair">
+          <option value="" selected>Please select fair</option>
+          <option [value]="data.eve_id" *ngFor="let data of fairData">{{data.eve_name}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Country</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="country">
+          <option value="" selected>Please select country</option>
+          <option [value]="data.value" *ngFor="let data of countryData">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Trade Center</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <div class="autoCompleteGroup">
+            <input type="text" class="width-100 border-box-1 border-radius-10" [(ngModel)]="tradeCenter" />
+        </div>
+      </ion-col>
+    </ion-row>
+   <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Company / Fname / Lname / Email</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <div class="autoCompleteGroup">
+            <input type="text" class="width-100 border-box-1 border-radius-10" [(ngModel)]="key" />
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row center class="margin-top-20">
+      <ion-col class="width-flex-15">
+        <span class="font-color-dark font-weight-400">Date</span>
+      </ion-col>
+      <ion-col class="width-flex-35">
+        <input type="date" class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="startDate"/>
+      </ion-col>
+      <ion-col class="width-flex-10">
+        <span class="font-color-dark font-weight-400">to</span>
+      </ion-col>
+      <ion-col class="width-flex-40">
+        <input type="date" class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="endDate"/>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-20 padding-left-10 padding-right-10">
+      <button 
+          (click)="search()"
+          ion-button 
+          block 
+          class="bg-custom-transparent border-radius-10 font-color-dark "
+          style="border:1px solid #ccc">
+            Search</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

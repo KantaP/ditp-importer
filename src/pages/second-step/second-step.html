@@ -1,0 +1,34 @@
+<!--
+  Generated template for the SecondStep page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>TYPE OF BUSINESS</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+<ion-content class="bg">
+    <form role="form" style="margin-top: 1vh;">
+    <div class="radio-group" *ngFor="let types of businesses; let i = index">
+        <div class="radio-button" style="position:relative;" *ngFor="let type of businesses[i]">
+            <input type="checkbox" [attr.id]="type.bus_id" [value]="type.bus_id"  #input (change)="onChange(input)" [checked]="checkIfSelected(type.bus_type , type.bus_id)"/>
+            <div class="check" ></div>
+            <div style="width:100%;position:absolute;height:100%;display:flex;align-items:center;justify-content:center;left:0px;">
+                <label [attr.for]="type.bus_id" style="width:100%;" #label >{{type.bus_type}} </label>
+            </div>
+        </div>
+    </div>
+    <div class="row-flex">
+        <div class="form-group" style="width:90%">
+            <button type="button" class="btn btn-lg btn-block btn-default" (click)="gotoThirdStep()">NEXT</button>
+        </div>
+    </div>
+</form>
+</ion-content>

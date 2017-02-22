@@ -1,0 +1,379 @@
+<!--
+  Generated template for the ImporterDetail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>IMPORTER LIST</ion-title>
+      <ion-buttons start>
+      <button ion-button icon-only color="light" (click)="dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content class="bg">
+  <div>
+    <ion-segment [(ngModel)]="viewSelector">
+      <ion-segment-button value="detail">
+        Detail
+      </ion-segment-button>
+      <ion-segment-button value="history">
+        History
+      </ion-segment-button> 
+      <ion-segment-button value="rank">
+        Rank Score
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="viewSelector">
+    <ion-grid class="padding-0" *ngSwitchCase="'detail'">
+      <ion-list>
+        <!-- company profile -->
+        <ion-list-header class="bg-custom-primary margin-top-3" (click)="expand('company')">
+          <ion-row center class="justify-space-between">
+            <span class="font-color-white">Company Profile</span>
+            <ion-icon class="font-size-4-vw" name="arrow-forward" [hidden]="expandLock.company"></ion-icon>
+            <ion-icon class="font-size-4-vw" name="arrow-down" [hidden]="!expandLock.company"></ion-icon>
+          </ion-row>
+        </ion-list-header>
+        <ion-item class="padding-0 item-ios-custom bg-transparent" [hidden]="!expandLock.company">
+          <ion-grid class="padding-0 margin-bottom-10">
+            <!--<ion-row>
+              <ion-col>
+                <span class="font-color-dark">Creator Name</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">xxxxx xxxxx</span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <span class="font-color-dark">Creator Date</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">xx / xx / xxxx</span>
+              </ion-col>
+            </ion-row>-->
+            <ion-row>
+              <ion-col width-33>
+                <ion-avatar>
+                  <div class="bg-custom-primary border-avatar margin-auto">
+                    <img [src]="importerData['company_profile']['com_logo']" />
+                  </div>
+                </ion-avatar>
+              </ion-col>
+              <ion-col width-67>
+                <ion-row wrap center>
+                  <ion-col>
+                    <span class="font-color-dark">Country</span>
+                  </ion-col>
+                  <ion-col>
+                    <span class="font-color-dark">{{importerData['company_profile']['country']}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row wrap center> 
+                  <ion-col>
+                    <span class="font-color-dark">Company Name</span>
+                  </ion-col>
+                  <ion-col>
+                    <span class="font-color-dark">{{importerData['company_profile']['com_name_en']}}</span>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row wrap center>
+              <ion-col>
+                <span class="font-color-dark">Address</span>
+              </ion-col>
+              <ion-col>
+                <ion-row wrap>
+                  <span class="font-color-dark">
+                    {{importerData['company_profile']['com_address_en']}}
+                    {{importerData['company_profile']['com_street_en']}}
+                    {{importerData['company_profile']['com_state_en']}}
+                    {{importerData['company_profile']['com_sub_state_en']}}
+                    {{importerData['company_profile']['com_city_en']}}
+                    {{importerData['company_profile']['com_zipcode_en']}}
+                    {{importerData['company_profile']['country']}}
+                  </span>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <!--<ion-row wrap center>
+              <ion-col>
+                <span class="font-color-dark">Country Code</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark"></span>
+              </ion-col>
+            </ion-row>-->
+            <ion-row wrap center>
+              <ion-col>
+                <span class="font-color-dark">Phone Number</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">{{importerData['company_profile']['com_telephone']}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row wrap center>
+              <ion-col>
+                <span class="font-color-dark">Fax</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">{{importerData['company_profile']['com_fax']}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row wrap center>
+              <ion-col>
+                <span class="font-color-dark">Website</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">{{importerData['company_profile']['com_website']}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row wrap center>
+              <ion-col>
+                <span class="font-color-dark">E - mail</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">{{importerData['company_profile']['com_email']}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row wrap center>
+              <ion-col>
+                <span class="font-color-dark">Location</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">{{companyLocation}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row class="padding-left-10 padding-right-10 height-100-px margin-top-5" >
+              <div class="border-box-1 border-radius-10 height-100 width-100" style="border-color:#ccc;">
+                <ion-col class="height-100">
+                  <ion-row center class="justify-space-around height-100">
+                    <ion-thumbnail>
+                      <img [src]="importerData['company_profile']['com_factory_pic1']" />
+                    </ion-thumbnail>
+                    <ion-thumbnail>
+                      <img [src]="importerData['company_profile']['com_factory_pic2']" />
+                    </ion-thumbnail>
+                    <ion-thumbnail>
+                      <img [src]="importerData['company_profile']['com_factory_pic3']" />
+                    </ion-thumbnail>
+                  </ion-row>
+                </ion-col>
+              </div>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <!-- type of business -->
+        <ion-list-header class="bg-custom-primary margin-top-3" (click)="expand('business')">
+          <ion-row center class="justify-space-between">
+            <span class="font-color-white">Type of Business</span>
+            <ion-icon class="font-size-4-vw" name="arrow-forward" [hidden]="expandLock.business"></ion-icon>
+            <ion-icon class="font-size-4-vw" name="arrow-down" [hidden]="!expandLock.business"></ion-icon>
+          </ion-row>
+        </ion-list-header>
+        <ion-item class="padding-0 item-ios-custom bg-transparent" [hidden]="!expandLock.business">
+          <ion-row *ngFor="let business of importerData['type_of_business']">
+            <span class="font-color-dark margin-left-20"> - {{business.bus_type}} </span>
+          </ion-row>
+        </ion-item>
+        <!-- product information -->
+        <ion-list-header class="bg-custom-primary margin-top-3" (click)="expand('product')">
+          <ion-row center class="justify-space-between">
+            <span class="font-color-white">Product Information</span>
+            <ion-icon class="font-size-4-vw" name="arrow-forward" [hidden]="expandLock.product"></ion-icon>
+            <ion-icon class="font-size-4-vw" name="arrow-down" [hidden]="!expandLock.product"></ion-icon>
+          </ion-row>
+        </ion-list-header>
+        <ion-item class="padding-0 item-ios-custom bg-transparent" [hidden]="!expandLock.product">
+          <ion-row center wrap class="padding-10" *ngFor="let product of importerData['product_information']['products']">
+            <span class="font-color-dark margin-left-20 width-100"> {{product['pro_name']}} </span>
+            <!--<span class="font-color-dark margin-left-30 margin-top-5 width-100"> - sub cat </span>
+            <span class="font-color-dark margin-left-30 margin-top-5 width-100"> - sub cat </span>
+            <span class="font-color-dark margin-left-30 margin-top-5 width-100"> - sub cat </span>-->
+          </ion-row>
+        </ion-item>
+        <!-- contact person -->
+        <ion-list-header class="bg-custom-primary margin-top-3" (click)="expand('contact')">
+          <ion-row center class="justify-space-between">
+            <span class="font-color-white">Contact Person</span>
+            <ion-icon class="font-size-4-vw" name="arrow-forward" [hidden]="expandLock.contact"></ion-icon>
+            <ion-icon class="font-size-4-vw" name="arrow-down" [hidden]="!expandLock.contact"></ion-icon>
+          </ion-row>
+        </ion-list-header>
+        <ion-item class="padding-0 item-ios-custom bg-transparent" [hidden]="!expandLock.contact">
+          <ion-grid class="padding-0" *ngFor="let contact of importerData['contact_person']">
+            <ion-item class="padding-0 item-ios-custom ">
+              <ion-row center class="justify-center">
+                  <ion-avatar class="custom-avatar">
+                    <img [src]="contact['comc_picture']" />
+                  </ion-avatar>
+              </ion-row>
+              <ion-row center class="margin-top-10">
+                  <ion-col width-33>
+                    <span class="font-color-dark">Contact Title</span>
+                  </ion-col>
+                  <ion-col width-67>
+                    <span class="font-color-dark">{{contact['pre_title']}}</span>
+                  </ion-col>
+              </ion-row>
+              <ion-row center class="margin-top-10">
+                  <ion-col width-33>
+                    <span class="font-color-dark">Name</span>
+                  </ion-col>
+                  <ion-col width-67>
+                    <span class="font-color-dark">{{contact['comc_firstname']}} {{contact['comc_middlename']}} {{contact['comc_lastname']}}</span>
+                  </ion-col>
+              </ion-row>
+              <ion-row center class="margin-top-10">
+                  <ion-col width-33>
+                    <span class="font-color-dark">Tel</span>
+                  </ion-col>
+                  <ion-col width-67>
+                    <span class="font-color-dark">{{contact['comc_contact_number']}}</span>
+                  </ion-col>
+              </ion-row>
+              <ion-row center class="margin-top-10">
+                  <ion-col width-33>
+                    <span class="font-color-dark">E - mail</span>
+                  </ion-col>
+                  <ion-col width-67>
+                    <span class="font-color-dark">{{contact['comc_email']}}</span>
+                  </ion-col>
+              </ion-row>
+              <ion-row class="padding-left-10 padding-right-10 height-100-px margin-top-5" >
+                <div class="border-box-1 border-radius-10 height-100 width-100" style="border-color:#ccc;">
+                  <ion-col class="height-100">
+                    <ion-row center class="justify-space-around height-100">
+                      <ion-thumbnail>
+                        <img [src]="contact['comc_namecard_front']" />
+                      </ion-thumbnail>
+                      <ion-thumbnail>
+                        <img [src]="contact['comc_namecard_back']" />
+                      </ion-thumbnail>
+                    </ion-row>
+                  </ion-col>
+                </div>
+              </ion-row>
+            </ion-item>
+          </ion-grid>
+        </ion-item>
+        <!-- note need -->
+        <ion-list-header class="bg-custom-primary margin-top-3" (click)="expand('note')">
+          <ion-row center class="justify-space-between">
+            <span class="font-color-white">Note / Need</span>
+            <ion-icon class="font-size-4-vw" name="arrow-forward" [hidden]="expandLock.note"></ion-icon>
+            <ion-icon class="font-size-4-vw" name="arrow-down" [hidden]="!expandLock.note"></ion-icon>
+          </ion-row>
+        </ion-list-header>
+        <ion-item class="padding-0 item-ios-custom bg-transparent" [hidden]="!expandLock.note">
+          <ion-grid class="padding-0" *ngFor="let note of importerData['note_need']">
+            <ion-row center class="justify-center margin-top-10">
+              <span class="font-color-dark">{{note.username}}</span>
+            </ion-row>
+            <ion-row center class="justify-center margin-top-10">
+              <span class="font-color-dark">{{_moment(note.createdate ,'YYYY-MM-DD HH:mm:ss').format('DD / MM / YYYY')}}</span>
+            </ion-row>
+            <ion-row class="padding-left-10 padding-right-10 height-100-px margin-top-5 margin-bottom-10" >
+              <div class="border-box-1 border-radius-10 height-100 width-100" style="border-color:#ccc;">
+                <ion-row center class="justify-center margin-top-10">
+                  <span class="font-color-dark">{{note.comn_title}}</span> 
+                </ion-row>
+                <ion-row center class="justify-center margin-top-10"> 
+                  <span class="font-color-dark font-weight-400">{{note.comn_note}}</span> 
+                </ion-row>
+              </div>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-grid>
+
+    <ion-grid *ngSwitchCase="'history'">
+      <ion-list>
+        <ion-row center wrap class="padding-0" *ngFor="let item of importerHistory; let i = index">
+          <ion-list-header class="bg-custom-primary margin-top-3 width-100" (click)="expandHistory(i)"> 
+            <ion-row center class="justify-space-between">
+              <span>History: {{item.title}}</span>
+              <ion-icon class="font-size-4-vw" name="arrow-forward" [hidden]="historyExpand[i]"></ion-icon>
+              <ion-icon class="font-size-4-vw" name="arrow-down" [hidden]="!historyExpand[i]"></ion-icon>
+            </ion-row>
+          </ion-list-header>
+          <ion-item class="padding-0 bg-custom-transparent width-100" [hidden]="!historyExpand[i]">
+            <ion-row center *ngFor="let history of item.attribute" >
+              <ion-col>
+                <span class="font-color-dark">{{_moment(history.get_datetime,'YYYY-MM-DD HH:mm:ss').format('DD / MM / YYYY')}}</span>
+              </ion-col>
+              <ion-col>
+                <span class="font-color-dark">{{history.get_attribute}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-row>
+      </ion-list>
+    </ion-grid>
+
+    <ion-grid *ngSwitchCase="'rank'">
+      <ion-row center >
+        <ion-item class="padding-0 item-ios-custom bg-transparent">
+          <ion-searchbar></ion-searchbar>
+        </ion-item>
+      </ion-row>
+      <ion-item class="padding-0 item-ios-custom bg-transparent">
+          <ion-grid class="padding-10">
+          <ion-row center class="justify-space-between">
+            <ul class="rating-block padding-0">
+              <li *ngFor="let rate of rates; let i = index" (click)="toggleStar(i)">
+                <ion-icon name="star-outline" class="font-size-8-vw" [hidden]="rates[i]"></ion-icon>
+                <ion-icon name="star" class="font-size-8-vw" [hidden]="!rates[i]"></ion-icon>
+              </li>
+            </ul>
+            <span class="font-color-dark font-size-5-vw"> Rank </span>
+          </ion-row>
+        </ion-grid>
+      </ion-item>  
+      <ion-list>
+        <ion-list-header class="bg-custom-primary margin-top-3" (click)="expand('rankscore')">
+          <ion-row center class="justify-space-between">
+            <span class="font-color-white">Company Profile</span>
+            <ion-icon class="font-size-4-vw" name="arrow-forward" [hidden]="expandLock.rankscore"></ion-icon>
+            <ion-icon class="font-size-4-vw" name="arrow-down" [hidden]="!expandLock.rankscore"></ion-icon>
+          </ion-row>
+        </ion-list-header>
+        <ion-item class="padding-0 item-ios-custom bg-transparent" [hidden]="!expandLock.rankscore">
+          <ion-grid class="padding-0">
+            <ion-row center class="justify-flex-start" *ngFor="let item of rankScore.items">
+              <ion-col class="width-flex-20">
+                <ion-avatar>
+                  <img [src]="item.mem_picture" />
+                </ion-avatar>
+              </ion-col>
+              <ion-col class="width-flex-40">
+                <span class="font-color-dark font-weight-400 font-size-3-vw">Name {{item.fullname}}</span>
+              </ion-col>
+              <ion-col class="width-flex-40">
+                <ion-row center class="align-center">
+                  <span class="font-color-dark font-weight-400 font-size-3-vw">Date {{_moment(item.datetime , 'YYYY-MM-DD HH:mm:ss').format('DD / MM / YYYY')}}</span>
+                </ion-row>
+                <ion-row center class="align-center">
+                  <ul class="rating-block padding-0">
+                    <li *ngFor="let number of [1,2,3,4,5]">
+                      <ion-icon [name]="(number <= item.rank) ? 'star' : 'star-outline'"></ion-icon>
+                    </li>
+                  </ul>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list> 
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,111 @@
+<!--
+  Generated template for the ListView page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>FOLLOW UP</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="backToHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-searchbar (ionInput)="searchImporter($event)"></ion-searchbar>
+  <ion-item class="item-ios-custom" >
+    <ion-row center wrap >
+      <ion-col class="width-flex-50">
+        <button ion-button small color="primary" (click)="openAdvanceSearch()">
+          Advance Search
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row center>
+      <ion-col>
+          <span class="font-color-dark">Sort by</span>
+          <select class="font-color-dark border-box-1 border-radius-10" style="border-color:#ccc" (change)="sortBy($event)" [(ngModel)]="sortingSelected">
+            <option [value]="data.value" *ngFor="let data of sortingData">{{data.text}}</option>
+          </select>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-list>
+    <ion-item class="bg-transparent item-ios-custom" *ngFor="let data of importerListData">
+      <ion-grid class="padding-0">
+        <ion-row center>
+          <ion-col width-25 (click)="importerDetail(data.com_id)">
+            <ion-row center class="justify-center">
+              <ion-avatar>
+                <img [src]="data.com_logo">
+              </ion-avatar>
+            </ion-row>
+            <ion-row center class="justify-center">
+              <ul class="rating-block padding-0">
+                <li *ngFor="let icon of rate; let i = index">
+                  <ion-icon [name]="(data.com_rating >= i) ? icon.star : icon.starOutline"></ion-icon>
+                </li>
+              </ul>
+            </ion-row>
+          </ion-col>
+          <ion-col width-75>
+            <ion-row center class="justify-flex-start">
+              <ion-col class="width-flex-50">
+                <ion-row wrap center (click)="importerDetail(data.com_id)">
+                  <span class="font-color-primary width-100">{{data.com_name_en}}</span>
+                  <span class="margin-top-5 font-color-dark font-weight-bold">Date {{_moment(data.com_duedate,'YYYY-MM-DD').format('DD/MM/YYYY')}}</span>
+                </ion-row>
+              </ion-col>
+              <ion-col class="width-flex-50 align-right">
+                <button ion-button icon-only outline small [ngClass]="{'bg-custom-primary': data.is_favorite}" > <!--(click)="favorite(data.com_id)"-->
+                  <ion-icon [ngClass]="{'font-color-white': data.is_favorite}" name="heart"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+            <ion-row center wrap class="justify-flex-start" (click)="importerDetail(data.com_id)">
+              <ion-col>
+                <span class="font-color-dark font-weight-400">Type of business</span>
+              </ion-col>
+              <ion-col class="overFlowScroll">
+                <span class="font-color-dark font-weight-400 ">{{data.bus_type}}</span>
+              </ion-col>
+            </ion-row>
+            <ion-row center class="justify-flex-start" (click)="importerDetail(data.com_id)">
+              <ion-col width-33>
+                <div class="progress-bar-custom">
+                  <span class="font-color-dark font-weight-bold">
+                    {{data.com_progress_value}}%
+                  </span>
+                  <div class="progress-custom" [ngStyle]="{'width': data.com_progress_value + '%'}">
+                  </div>
+                  
+                </div>
+              </ion-col>
+               
+              <ion-col>
+                <ion-row>
+                  <ion-col class="height-1-vh" *ngFor="let item of dueDate; let i = index" 
+                  [ngStyle]="{
+                    'background-color' : (data.option_duedate.period == item.period) ? item.color : '#ccc' , 
+                    'opacity' : (data.option_duedate.period == item.period) ? 1 : item.opacity
+                  }">
+                  </ion-col> 
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item class="bg-transparent item-ios-custom border-bottom-0-important">
+      <ion-row center class="justify-center">
+          <button ion-button small outline color="primary" (click)="nextPage()">Load more</button>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>

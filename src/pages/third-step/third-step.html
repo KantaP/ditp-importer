@@ -1,0 +1,70 @@
+<!--
+  Generated template for the ThirdStep page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>PRODUCT INFORMATION</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+<ion-content class="bg">
+    <form role="form" class="column-flex" style="border-bottom:1px solid #ccc;margin-bottom:10px;">
+      <div class="row-flex" style="justify-content:flex-end;">
+          <button type="button" class="btn btn-custom-background" (tap)="gotoSearchCategory()">Category & Product</button>
+      </div>
+      <div class="row-flex">
+          <div class="form-group">
+              <label class="control-label">Product</label>
+              <div class="control-group">
+                  <div class="autoCompleteGroup">
+                      <input type="text" class="form-control" (keyup)="onKeyUp($event)" (keydown)="onKeyDown()" />
+                      <div class="autoCompleteBox">
+                          <span *ngFor="let product of autoCompleteData" (tap)="setProductFromAutocomplete(product)">
+                            {{product.pro_name}} 
+                          </span> 
+                      </div>
+                  </div>
+                  <!--<ion-searchbar placeholder="Search you product" (keyup)="onKeyUp($event)" (keydown)="onKeyDown()">
+                  </ion-searchbar>-->
+                  <button class="btn btn-custom-background" style="margin-left:5px">Add</button>
+              </div>
+          </div>
+      </div>
+      <div class="row-flex" style="flex-wrap:wrap;justify-content:flex-start">
+          <div class="cat_box" *ngFor="let item of productCategories" (click)="delete(item.pro_id)">
+            {{ item.pro_name }}
+          </div>
+      </div>
+  </form>
+  <div class="row-flex custom-row-flex-thrid">
+    <span class="picture-add custom-picture-box" (tap)="selectImageProduct()">
+      <i class="fa fa-plus"></i>
+    </span>
+    <span class="picture-add custom-picture-box" 
+    [ngStyle]="{
+      'background-image': 'url(' + up.compi_image_name + ')',
+      'background-size' : '100% 100%',
+      'background-repeat' : 'no-repeat'
+    }"
+    *ngFor="let up of uploadProduct; let i = index">
+      <i class="fa fa-times fa-2x close-icon" (click)="deleteImage(up)"></i>
+      <p style="    
+      position: absolute;
+      bottom: -34px;
+      font-weight: bold;
+      font-size: 4vw;">{{up.compi_desc}}</p>
+    </span>
+  </div> 
+  <div class="row-flex" style="position:absolute;bottom:0">
+        <div class="form-group" style="width:90%">
+            <button type="button" class="btn btn-lg btn-block btn-default" (click)="gotoForthStep()">NEXT</button>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,98 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>PROFILE</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="backToHome()">
+        <ion-icon name="home" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-grid class="padding-0 margin-top-30">
+    <ion-row class="justify-center ">
+      <div class="avatar img-circle img-container" [hidden]="picture" (click)="selectImage()">
+          <i class="fa fa-plus icon-size" ></i>
+      </div>
+      <div class="avatar img-circle" [ngStyle]="{
+          'background-image': 'url(' + picture + ')',
+          'background-size' : '100% 100%',
+          'background-repeat' : 'no-repeat'
+      }" [hidden]="!picture" (click)="selectImage()"  >
+      </div>
+    </ion-row>
+    <ion-row class="padding-10">
+      <ion-col class="width-flex-30">
+        <span class="font-color-dark font-size-16-px">Name: </span>
+      </ion-col>
+      <ion-col class="width-flex-70">
+        <input type="text" class="width-100 border-box-1 border-radius-10" [(ngModel)]="name"/>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-10">
+      <ion-col class="width-flex-30">
+        <span class="font-color-dark font-size-16-px">Lastname: </span>
+      </ion-col>
+      <ion-col class="width-flex-70">
+        <input type="text" class="width-100 border-box-1 border-radius-10" [(ngModel)]="lastname"/>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-10">
+      <ion-col class="width-flex-30">
+        <span class="font-color-dark font-size-16-px">Position: </span>
+      </ion-col>
+      <ion-col class="width-flex-70">
+        <input type="text" class="width-100 border-box-1 border-radius-10" [(ngModel)]="position"/>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-10">
+      <ion-col class="width-flex-30">
+        <span class="font-color-dark font-size-16-px">Email: </span>
+      </ion-col>
+      <ion-col class="width-flex-70">
+        <input type="email" class="width-100 border-box-1 border-radius-10" [(ngModel)]="email"/>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-10">
+      <ion-col class="width-flex-30">
+        <span class="font-color-dark font-size-16-px">Address: </span>
+      </ion-col>
+      <ion-col class="width-flex-70">
+        <input type="text" class="width-100 border-box-1 border-radius-10" [(ngModel)]="address" readonly/>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-10">
+      <ion-col class="width-flex-30">
+        <span class="font-color-dark font-size-16-px">Country: </span>
+      </ion-col>
+      <ion-col class="width-flex-70">
+        <input type="text" class="width-100 border-box-1 border-radius-10" [(ngModel)]="country" readonly/>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-10">
+      <ion-col class="width-flex-30">
+        <span class="font-color-dark font-size-16-px">Telephone: </span>
+      </ion-col>
+      <ion-col class="width-flex-70">
+        <input type="tel" class="width-100 border-box-1 border-radius-10" [(ngModel)]="mobile"/>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-20 padding-left-10 padding-right-10">
+      <button 
+          ion-button 
+          block 
+          class="bg-custom-transparent border-radius-10 font-color-dark "
+          style="border:1px solid #ccc" 
+          (click)="saveProfile()">
+            Save</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

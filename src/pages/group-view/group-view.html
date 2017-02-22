@@ -1,0 +1,93 @@
+<!--
+  Generated template for the GroupView page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>FAVORITE</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="backToHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-searchbar (ionInput)="searchFavorite($event)"></ion-searchbar>
+  <ion-segment [(ngModel)]="viewGroup">
+    <ion-segment-button value="view">
+      Group List
+    </ion-segment-button>
+    <ion-segment-button value="add">
+      Add Group
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="viewGroup">
+    <ion-list *ngSwitchCase="'view'">
+      <ion-item class="bg-transparent item-ios-custom" *ngFor="let group of groupList; let i = index">
+        <ion-grid class="padding-0">
+          <ion-row>
+            <ion-col class="width-flex-60">
+              <ion-row center wrap class="justify-flex-start margin-top-10 margin-left-10">
+                <span class="width-100 font-color-dark font-size-3-vw font-weight-400">
+                  {{group.favg_name}}
+                </span>
+                <span class="margin-top-5 font-color-dark font-size-3-vw font-weight-400">
+                  Creation Date : {{_moment(group.createdate, 'YYYY-MM-DD HH:mm:ss').format('DD / MM / YYYY')}}
+                </span>
+              </ion-row>
+            </ion-col>
+            <ion-col class="width-flex-10 margin-left-5">
+              <button ion-button icon-only class="bg-custom-transparent font-color-primary">
+                <ion-icon name="mail"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col class="width-flex-10 margin-left-5">
+              <button ion-button icon-only class="bg-custom-transparent font-color-primary" (click)="updateGroup(group.favg_id)"> 
+                <ion-icon name="create"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col class="width-flex-10">
+              <button ion-button icon-only class="bg-custom-transparent font-color-primary" (click)="deleteGroup(group.favg_id)"> 
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item *ngIf="groupList.length % 20 == 0">
+        <span> Load More </span>
+      </ion-item>
+    </ion-list>
+
+    <div *ngSwitchCase="'add'">
+      <ion-grid class="padding-0 ">
+        <ion-row center class="justify-flex-start height-10-vh">
+          <ion-col class="width-flex-30 align-center">
+            <span class="font-color-dark font-size-3-vw ">
+              Group Name
+            </span>
+          </ion-col>
+          <ion-col class="width-flex-70">
+             <input [(ngModel)]="favg_insert_name" type="text" class="width-100 border-1 border-radius-10" style="border-color:#ccc" /> 
+          </ion-col>
+        </ion-row>
+        <ion-row center class="justify-center padding-left-20 padding-right-20">
+          <button 
+          (click)="favoriteInsert()"
+          ion-button 
+          block 
+          class="bg-custom-transparent border-radius-10 font-color-dark"
+          style="border:1px solid #ccc">
+            Save</button>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+</ion-content>

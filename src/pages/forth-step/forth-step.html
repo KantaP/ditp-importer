@@ -1,0 +1,167 @@
+<!--
+  Generated template for the ForthStep page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>forthStep</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-searchbar (ionInput)="searchContact($event)"></ion-searchbar>
+  <div>
+    <ion-segment [(ngModel)]="view">
+      <ion-segment-button value="select">
+        Contact Person
+      </ion-segment-button>
+      <ion-segment-button value="add">
+        Add Contact Person
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="view">
+    <ion-grid *ngSwitchCase="'add'">
+      <ion-row center style="justify-content:center;">
+        <ion-col width-90 offset-5>
+          <div class="avatar img-circle img-container" style="margin:0 auto;"
+          [hidden]="contactPersonForm.comc_picture" (tap)="selectLogoImage()">
+                <i class="fa fa-plus icon-size" 
+                ></i>
+            </div>
+          <div class="avatar img-circle mg-container" [ngStyle]="{
+              'background-image': 'url(' + contactPersonForm.comc_picture + ')',
+              'background-size' : '100% 100%',
+              'background-repeat' : 'no-repeat',
+              'margin': '0 auto'
+          }" (tap)="selectLogoImage()" [hidden]="!contactPersonForm.comc_picture"  >
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <ion-col width-33 class="person-form-label">
+          <span >Contact Title: </span>
+        </ion-col>
+        <ion-col>
+          <span>
+            <input type="text" class="form-control" [(ngModel)]="contactPersonForm.comc_position" />
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <ion-col width-33 class="person-form-label">
+          <span >First Name: </span>
+        </ion-col>
+        <ion-col width-20>
+          <span>
+            <select class="form-control" [(ngModel)]="contactPersonForm.pre_id" style="font-size:12px;padding:0px">
+              <option *ngFor="let pre of prefix" [value]="pre.pre_id" [selected]="contactPersonForm.pre_id == pre.pre_id">
+                {{pre.pre_title}}
+              </option>
+            </select>
+          </span>
+        </ion-col>
+        <ion-col>
+          <span>
+            <input type="text" class="form-control" [(ngModel)]="contactPersonForm.comc_firstname"/>
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <ion-col width-33 class="person-form-label">
+          <span >Middle Name: </span>
+        </ion-col>
+        <ion-col>
+          <span>
+            <input type="text" class="form-control" [(ngModel)]="contactPersonForm.comc_middlename"/>
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <ion-col width-33 class="person-form-label">
+          <span >Surname: </span>
+        </ion-col>
+        <ion-col>
+          <span>
+            <input type="text" class="form-control" [(ngModel)]="contactPersonForm.comc_lastname"/>
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <ion-col width-33 class="person-form-label">
+          <span >Tel: </span>
+        </ion-col>
+        <ion-col>
+          <span>
+            <input type="tel" class="form-control" [(ngModel)]="contactPersonForm.comc_contact_number"/>
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <ion-col width-33 class="person-form-label">
+          <span >E-mail: </span>
+        </ion-col>
+        <ion-col>
+          <span>
+            <input type="email" class="form-control" [(ngModel)]="contactPersonForm.comc_email"/>
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <div class="name-card-block">
+          <p>Name Card Picture</p>
+          <div>
+            <span class="picture-add custom-picture-box" [ngStyle]="{
+            'background-image': 'url(' + contactPersonForm.comc_namecard_front + ')',
+            'background-size' : '100% 100%',
+            'background-repeat' : 'no-repeat'
+            }" (tap)="selectFrontImage()">
+              <i class="fa fa-plus" [hidden]="contactPersonForm.comc_namecard_front"></i>
+            </span>
+            <span class="picture-add custom-picture-box" [ngStyle]="{
+            'background-image': 'url(' + contactPersonForm.comc_namecard_back + ')',
+            'background-size' : '100% 100%',
+            'background-repeat' : 'no-repeat'
+            }" (tap)="selectBackImage()">
+              <i class="fa fa-plus" [hidden]="contactPersonForm.comc_namecard_back"></i>
+            </span>
+          </div>
+        </div>
+      </ion-row>
+      <ion-row center>
+        <div class="form-group custom-btn-block">
+          <button type="button" class="btn btn-lg btn-block btn-default" (click)="saveContactPerson()">SAVE</button>
+        </div>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngSwitchCase="'select'">
+      <ion-list *ngIf="contactList.length > 0">
+        <ion-item-sliding *ngFor="let contact of contactList">
+          <ion-item>
+            <ion-avatar item-left>
+              <img [src]="contact.comc_picture">
+            </ion-avatar>
+            <h2 style="color:#000">{{contact.title_name}}{{contact.comc_firstname}} {{contact.comc_middlename}} {{contact.comc_lastname}} </h2>
+            <h3 style="color:#000">{{contact.comc_position}}</h3>
+            <h3 style="color:#000">{{contact.comc_contact_number}}</h3>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="green" style="width:50px" (tap)="editContactPerson(contact)">
+              Edit
+            </button>
+             <button ion-button color="danger"  style="width:50px" (tap)="deleteContact(contact.comc_id || 0)">
+              Delete
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-grid>
+</div>
+</ion-content>
+
+

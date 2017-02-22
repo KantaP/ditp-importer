@@ -1,0 +1,22 @@
+<!--
+  Generated template for the SecondStep page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<form role="form" style="margin-top: 1vh;">
+    <div class="radio-group" *ngFor="let types of businesses; let i = index">
+        <div class="radio-button" *ngFor="let type of businesses[i]">
+            <input type="checkbox" [attr.id]="type.bus_id" [value]="bus_id" />
+            <div class="check"></div>
+            <label [attr.for]="type.bus_id">{{type.bus_type}} </label>
+        </div>
+    </div>
+    <div class="row-flex">
+        <div class="form-group" style="width:90%" *ngIf="businesses">
+            <button type="button" class="btn btn-lg btn-block btn-default" (click)="gotoThirdStep()">NEXT</button>
+        </div>
+    </div>
+
+</form>

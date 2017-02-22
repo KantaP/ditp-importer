@@ -1,0 +1,115 @@
+<!--
+  Generated template for the AdvanceSearch page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>SEARCH</ion-title>
+      <ion-buttons start>
+      <button ion-button icon-only color="light" (click)="dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-grid class="padding-5 margin-top-30">
+    <ion-row center>
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Source Data</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="sourceSelected">
+          <option value="" selected>Please select source data</option>
+          <option [value]="data.value" *ngFor="let data of sourceData">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Office</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="officeSelected">
+          <option value="" selected>Please select office</option>
+          <option [value]="data.value" *ngFor="let data of office">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Country</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="countrySelected">
+          <option value="" selected>Please select country</option>
+          <option [value]="data.value" *ngFor="let data of country">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Business Type</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="businessTypeSelected">
+          <option value="" selected>Please select business type</option>
+          <option [value]="data.value" *ngFor="let data of businessType">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Company</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <div class="autoCompleteGroup">
+            <input type="text" class="width-100 border-box-1 border-radius-10" (keyup)="onKeyUp()" (keydown)="onKeyDown()" [(ngModel)]="companyText" />
+            <div class="autoCompleteBox">
+                <span *ngFor="let c of autoCompleteData" (tap)="setCompany(c)">
+                  {{c.text}} 
+                </span> 
+            </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-10">
+      <ion-col class="width-flex-40">
+        <span class="font-color-dark font-weight-400">Contact Person</span>
+      </ion-col>
+      <ion-col class="width-flex-60">
+        <select class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="contactPersonSelected">
+          <option value="" selected>Please select contact person</option>
+          <option [value]="data.value" *ngFor="let data of contactPerson">{{data.text}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-20">
+      <ion-col class="width-flex-15">
+        <span class="font-color-dark font-weight-400">Date</span>
+      </ion-col>
+      <ion-col class="width-flex-35">
+        <input type="date" class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="startDate"/>
+      </ion-col>
+      <ion-col class="width-flex-10">
+        <span class="font-color-dark font-weight-400">to</span>
+      </ion-col>
+      <ion-col class="width-flex-40">
+        <input type="date" class="width-100 border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="endDate"/>
+      </ion-col>
+    </ion-row>
+    <ion-row center class="margin-top-20 padding-left-10 padding-right-10">
+      <button 
+          (click)="search()"
+          ion-button 
+          block 
+          class="bg-custom-transparent border-radius-10 font-color-dark "
+          style="border:1px solid #ccc">
+            Search</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

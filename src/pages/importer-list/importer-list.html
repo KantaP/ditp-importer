@@ -1,0 +1,22 @@
+<!--
+  Generated template for the ImporterList page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{titleFix || title}}</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="backToHome()">
+        <ion-icon name="home" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-tabs selectedIndex="0">
+    <ion-tab tabIcon="md-download" tabTitle="Importer List" [root]="listView" (ionSelect)="setTitle('IMPORTER LIST')"></ion-tab>
+    <ion-tab tabIcon="heart" tabTitle="Favourite" [root]="groupView" (ionSelect)="setTitle('FAVORITE')"></ion-tab>
+</ion-tabs>
+ 

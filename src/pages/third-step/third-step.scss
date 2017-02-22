@@ -1,0 +1,68 @@
+page-third-step {}
+
+.control-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.cat_box {
+    
+    width: auto !important;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    &:after{
+        font-family: 'FontAwesome';
+        content: '\f057';
+        color: red
+    }
+}
+
+.custom-picture-box {
+    border-radius: 10px;
+    width: 25vw;
+    height: 20vw;
+    margin-left: 15px;
+    margin-top:15px;
+}
+
+.close-icon {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    color: red !important;
+}
+
+.custom-row-flex-thrid {
+    justify-content: flex-start;
+    width: 95%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.autoCompleteBox{
+    height: auto;
+    z-index: 1000;
+    position: absolute;
+    width: 70vw !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    & > span {
+        width:100%;
+        border: 1px solid #ccc;
+        padding: 5px;
+        cursor: pointer;
+        background: #fff;
+        &:hover , &:focus {
+            background: $mainColor;
+            color: #fff
+        }
+    }
+}

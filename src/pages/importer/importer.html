@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Importer page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header [hidden]="routeState.route == 'categories' || routeState.route == 'subcategories'">
+  <ion-toolbar color="primary">
+    <ion-buttons start [hidden]="!params.hasOwnProperty('com_id')">
+      <button ion-button icon-only color="light" (click)="popRoute()" >
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+      </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="backToHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-tabs class="tab-step-button">
+  <ion-tab [root]="step1Root" #tab1 [rootParams]="params" (ionSelect)="setTitle('COMPANY PROFILE' , 'firstStep' , tab1)"> 
+  </ion-tab>
+  <ion-tab [root]="step2Root" #tab2 [rootParams]="params" (ionSelect)="setTitle('TYPE OF BUSINESS' , 'secondStep' , tab2)">
+  </ion-tab>
+  <ion-tab [root]="step3Root" #tab3 [rootParams]="params" (ionSelect)="setTitle('PRODUCT INFORMATION' , 'thirdStep' , tab3)">
+  </ion-tab>
+  <ion-tab [root]="step4Root" #tab4 [rootParams]="params" (ionSelect)="setTitle('CONTACT PERSON' , 'forthStep' , tab4)">
+  </ion-tab>
+  <ion-tab [root]="step5Root" #tab5 [rootParams]="params" (ionSelect)="setTitle('NOTE / NEEDS' , 'fifthStep' , tab5)">
+  </ion-tab>
+</ion-tabs>

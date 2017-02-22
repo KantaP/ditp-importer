@@ -1,0 +1,11 @@
+<!--
+  Generated template for the Categories page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div class="category-block">
+  <div class="category-menu" *ngFor="let category of categories" (click)="selectCategory(category.pro_id)"> 
+    <span>{{category.pro_name}}</span>
+  </div>
+</div> 

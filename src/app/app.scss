@@ -1,0 +1,603 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import "../assets/sass/_media-queries";
+$input-height-base: 34px;
+$input-height-small: 30px;
+$input-height-large: 46px;
+$padding-base-horizontal: 12px;
+$grid-gutter-width: 30px;
+$screen-sm-min: 768px;
+img {
+    object-fit: contain;
+}
+
+textarea {
+    resize: none;
+}
+
+label {
+    font-weight: 400 !important;
+}
+
+.btn-transparent {
+    background: transparent !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+}
+
+.bg {
+    background: url(../assets/images/BGmobile.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    /* For WebKit*/
+    -moz-background-size: cover;
+    /* Mozilla*/
+    -o-background-size: cover;
+    /* Opera*/
+    background-size: cover;
+    /* Generic*/
+}
+
+.has-feedback-left {
+    // Left Icon Input Padding
+    .form-control {
+        //reset changes to right
+        padding-right: $padding-base-horizontal;
+        padding-left: $input-height-base;
+    }
+    .form-control.input-sm,
+    &.form-group-sm .form-control {
+        padding-left: $input-height-small;
+    }
+    .form-control.input-lg,
+    &.form-group-lg .form-control {
+        padding-left: $input-height-large;
+    }
+}
+
+// Left Align Icon
+.has-feedback-left .form-control-feedback {
+    left: 0;
+    top: 10px;
+}
+
+.black-link {
+    color: #000;
+}
+
+
+/* the switch */
+
+
+/* The switch - the box around the slider */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+
+/* Hide default HTML checkbox */
+
+.switch input {
+    display: none;
+}
+
+
+/* The slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 28px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:after {
+    position: absolute;
+    font-family: 'FontAwesome';
+    content: "\f00c";
+    -webkit-transition: .4s;
+    transition: .4s;
+    display: inline-block;
+    font-size: 1.5em;
+    color: #fff;
+    top: 5px;
+    left: 5px;
+}
+
+input:checked+.slider {
+    background-color: #dd5b42;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #dd5b42;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(35px);
+    -ms-transform: translateX(35px);
+    transform: translateX(35px);
+}
+
+input::checked+.slider:after {}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* end switch */
+
+.no-margin {
+    margin: 0px
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.header-custom {
+    background-image: url('../assets/images/NavBar.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*.content-block {
+    display: flex;
+    width: 100%;
+    overflow: scroll;
+    height:  80vh;
+}*/
+
+.full-width { 
+    width: 100%;
+}
+
+/*.footer {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    @include landscape {
+        height: 15vh;
+    }
+}*/
+
+.toolbar-title-ios {
+    font-size: 4vw;
+}
+
+.row-flex {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.column-flex {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    div {
+        width: 95%;
+    }
+}
+
+.logo {
+    width: 120px;
+}
+
+.avatar {
+    @include min-screen(1024px) {
+        height: 10vw;
+        width: 10vw;
+    }
+    height: 140px;
+    width: 140px;
+    border: 5px solid #dd5b42;
+    background: $mainColor;
+}
+
+.menu-button {
+    width: 50%;
+    background: transparent !important;
+}
+
+.menu-img {
+    height: 100px;
+}
+
+.btn-custom-background {
+    background-image: url('../assets/images/NavBar.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px !important;
+    color: #fff;
+}
+
+.btn {
+    width: auto;
+}
+
+.barCategory {
+    background-image: url('../assets/images/NavBar.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 10px; 
+    font-size: 4vw; 
+}
+
+.item-ios ion-avatar img {
+  max-width: 5.6rem;
+  max-height: 5.6rem;
+  border-radius: 2.8rem;
+}
+
+.label-ios {
+    text-align: left !important;
+}
+
+ion-app._gmaps_cdv_ .nav-decor{
+  background-color: transparent !important;
+}
+
+#map {
+    height: 100%;
+}
+
+$justify: flex-start , flex-end , center , space-between , space-around;
+@each $item in $justify {
+    .justify-#{$item} {
+        justify-content: $item;
+    }
+} 
+
+.flex-1 {
+    flex: 1
+}
+
+$aligns: left , center , right ;
+@each $align in $aligns {
+    .align-#{$align} {
+        text-align:  $align;
+    }
+}
+
+.margin-auto {
+    margin: 0 auto;
+}
+
+.margin-horizontal-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@for $i from 0 through 100 {
+    .margin-#{$i} {
+        margin: $i + 0px ;
+    }
+    .margin-top-#{$i} {
+        margin-top: $i + 0px;
+    }
+    .margin-bottom-#{$i} {
+        margin-bottom: $i + 0px;
+    }
+    .margin-left-#{$i} {
+        margin-left : $i + 0px;
+    }
+    .margin-left-#{$i}-vw {
+        margin-left : $i + 0vw;
+    }
+    .margin-right-#{$i} {
+        margin-right: $i + 0px;
+    }
+
+    .padding-#{$i} {
+        padding: $i + 0px;
+    }
+    .padding-top-#{$i} {
+        padding-top: $i + 0px;
+    }
+    .padding-bottom-#{$i} {
+        padding-bottom: $i + 0px;
+    }
+    .padding-left-#{$i} {
+        padding-left : $i + 0px;
+    }
+    .padding-right-#{$i} {
+        padding-right: $i + 0px;
+    }
+
+    .font-size-#{$i}-px {
+        font-size : $i + 0px !important;
+    }
+    .font-size-#{$i}-em {
+        font-size: $i + 0em !important;
+    }
+    .font-size-#{$i}-rem {
+        font-size: $i + 0rem !important;
+    }
+    .font-size-#{$i}-vh {
+        font-size: $i + 0vh !important;
+    }
+    .font-size-#{$i}-vw {
+        font-size: $i + 0vw !important;
+    }
+
+    .width-#{$i} {
+        width: $i + 0%;
+    }
+    .width-#{$i}-px {
+        width: $i + 0px;
+    }
+    .width-#{$i}-vw {
+        width : $i + 0vw;
+    }
+
+    .height-#{$i} {
+        height: $i + 0%;
+    }
+    .height-#{$i}-px {
+        height: $i + 0px;
+    }
+    .height-#{$i}-vh {
+        height : $i + 0vh;
+    }
+
+    .width-flex-#{$i} {
+        flex: 0 0 $i+0%;
+        max-width: $i+0%
+    }
+
+    .border-#{$i} {
+        border-width: $i + 0px;
+    }
+
+    .border-top-#{$i} {
+        border-top-width: $i + 0px;
+    }
+
+    .border-bottom-#{$i} {
+        border-bottom-width: $i + 0px;
+    }
+
+    .border-bottom-#{$i}-important {
+        border-bottom-width: $i + 0px !important;
+    }
+
+    .border-right-#{$i} {
+        border-right-width: $i + 0px;
+    }
+
+    .border-left-#{$i} {
+        border-left-width: $i + 0px;
+    }
+
+    .border-radius-#{$i} {
+        border-radius: $i + 0px;
+    }
+
+    .border-box-#{$i} {
+        border: $i + 0px solid
+    }
+
+    .img-circle-#{$i}-rem {
+        max-width: $i + 0rem;
+        max-height: $i + 0rem;
+        border-radius: $i / 2 + 0rem;
+    }
+  }
+
+ .bg-transparent {
+     background: transparent;
+ }
+
+.item-ios-custom {
+    padding:0px !important; 
+    .item-block {
+        padding: 0px !important;
+    }
+    .item-inner {
+        padding-right: 0px !important;
+    }
+    ion-label {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+.rating-block {
+    display: inline-flex;
+    list-style-type: none;
+    li {
+        color: tomato;
+    }
+}
+
+$colors: ( primary: #E87B66, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, 
+dark: #222 , green: #b6dd47 , white: #fff , transparent: transparent);
+@each $key , $value in $colors {
+    .font-color-#{$key} {
+        color: $value;
+    }
+    
+    .bg-custom-#{$key} {
+        background-color: $value;
+    }
+}
+
+$fontWeight: 100 , 200 , 300 , 400 , 500 , 600 , 700 , bold;
+@each $weight in $fontWeight {
+    .font-weight-#{$weight} {
+        font-weight: $weight;
+    }
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll;
+}
+
+
+
+.textOverflow {
+    text-overflow: ellipsis;
+     white-space: nowrap;
+    overflow: hidden;
+}
+
+.overFlowScroll {
+    overflow: scroll
+}
+
+.progress-bar-custom{
+    background: #ccc;
+    position: relative;
+    padding: 1px;
+    text-align: center;
+    .progress-custom {
+        background: yellow;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.4;
+    }
+}
+
+.opacity-half {
+    opacity: 0.3;
+}
+
+.custom-avatar {
+    width:30vw!important;
+    height:30vw !important;
+    img {
+        width:100% !important;
+        height: 100% !important;
+        max-width:100% !important; 
+        max-height: 100% !important;
+    }
+}
+
+.border-avatar{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 3rem;
+    position: relative;
+    img {
+        top: 0.2rem;
+        left: 0.2rem;
+        position: absolute;
+    }
+}
+.checkboxFour {
+	width: 16px;
+	height: 16px;
+	background: #ddd;
+	// margin: 20px 90px;
+    margin: 0 auto;
+	border-radius: 100%;
+	position: relative;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+    & label {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 100px;
+
+        transition: all .5s ease;
+        cursor: pointer;
+        position: absolute;
+        top: 2px;
+        left: 1px;
+        z-index: 1;
+
+        background: #ccc;
+        box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    & input[type=checkbox]{ 
+        visibility: hidden
+    }
+
+    & input[type=checkbox]:checked + label {
+        background:#E87B66;
+    }
+
+    & input[type=radio]{ 
+        visibility: hidden
+    }
+
+    & input[type=radio]:checked + label {
+        background:#E87B66;
+    }
+
+}
+
+
+
+
+/* function */
+
+@function em($target,
+$context: 14) {
+    @return ($target / $context) * 1em;
+}
+
+/* end*/

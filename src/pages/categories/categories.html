@@ -1,0 +1,25 @@
+<!--
+  Generated template for the Categories page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start >
+      <button ion-button icon-only color="light" (tap)="back()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>PRODUCT INFORMATION</ion-title>
+      
+  </ion-toolbar> 
+
+</ion-header>
+<ion-content class="bg">
+  <div class="category-block">
+  <div class="category-menu" *ngFor="let category of categories" (tap)="selectCategory(category.pro_id)"> 
+    <span>{{category.pro_name}}</span>
+  </div>
+</div> 
+</ion-content>

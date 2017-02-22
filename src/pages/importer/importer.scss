@@ -1,0 +1,78 @@
+page-importer {
+    
+}
+
+.header {
+    span {
+        color: #fff;
+        font-size: 5vw;
+    }
+    i {
+        color: #fff;
+        font-size: 7vw;
+    }
+}
+
+.importer {
+    .footer {
+        background: #fff;
+    }
+}
+
+.tab-menu {
+    transition: background-color 0.5s ease;
+    @include portrait {
+        width: 20vw;
+    }
+    @include landscape {
+        width: 20vh;
+    }
+    padding: 5px;
+    &.active {
+        background-color: $mainColor;
+    }
+}
+
+
+.tab-step-button {
+    .tab-button {
+        background-size: 80%;
+        background-position: 5px -5px;
+        background-repeat: no-repeat;
+    }
+    .tab-button:nth-child(1) {
+        background-image: url('../assets/images/step1-o.png');
+        &.activated {
+            background-image: url('../assets/images/step1-w.png');
+            background-color: $mainColor;
+        }
+    }
+    .tab-button:nth-child(2) {
+        background-image: url('../assets/images/step2-o.png');
+        &.activated {
+            background-image: url('../assets/images/step2-w.png');
+            background-color: $mainColor;
+        }
+    }
+    .tab-button:nth-child(3) {
+        background-image: url('../assets/images/step3-o.png');
+        &.activated {
+            background-image: url('../assets/images/step3-w.png');
+            background-color: $mainColor;
+        }
+    }
+   .tab-button:nth-child(4) {
+        background-image: url('../assets/images/step4-o.png');
+        &.activated {
+            background-image: url('../assets/images/step4-w.png');
+            background-color: $mainColor;
+        }
+    }
+    .tab-button:nth-child(5) {
+        background-image: url('../assets/images/step5-o.png');
+        &.activated {
+            background-image: url('../assets/images/step5-w.png');
+            background-color: $mainColor;
+        }
+    }
+}

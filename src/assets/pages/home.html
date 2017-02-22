@@ -1,0 +1,54 @@
+<!--
+  Generated template for the Home page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="bg">
+    <div style="width:100%;height:100%">
+        <div class="home-section">
+            <div class="row-flex">
+                <img class="logo" src="assets/images/Logo_trans.png" />
+                <button class="btn btn-xs btn-transparent " (click)="logout()">LOG OUT</button>
+            </div>
+            <div class="row-flex">
+                <img [src]="userData.mem_picture" class="avatar img-circle">
+            </div>
+            <div class="row-flex">
+                <div class="column-flex">
+                    <span style="font-weight:bold;font-size:20px;">
+                    {{userData.fullname}}
+                </span>
+                    <span style="font-size:16px;">{{userData.mem_position}}</span>
+                    <span style="font-size:14px;">{{userData.ttc}} , {{userData.country}} </span>
+                </div>
+            </div>
+            <div class="column-flex">
+                <div class="row-flex" style="padding:10px;">
+                    <button class="btn menu-button" (click)="gotoImporter()">
+                      <img class="menu-img" src="assets/images/menu icon/menu icon/ADD IMPORTER.png" />
+                    </button>
+                    <button class="btn menu-button">
+                      <img class="menu-img" src="assets/images/menu icon/menu icon/SHARE_CONTACT.png" />
+                    </button>
+                </div>
+                <div class="row-flex" style="padding:10px;">
+                    <button class="btn menu-button">
+                      <img class="menu-img" src="assets/images/menu icon/menu icon/IMPORTER LIST.png" />
+                    </button>
+                    <button class="btn menu-button">
+                      <img class="menu-img" src="assets/images/menu icon/menu icon/MY PORTFOLIOS.png" />
+                    </button>
+                </div>
+                <div class="row-flex" style="padding:10px;">
+                    <button class="btn menu-button">
+                      <img class="menu-img" src="assets/images/menu icon/menu icon/PRE_REGISTRATION.png" />
+                    </button>
+                    <button class="btn menu-button">
+                      <img class="menu-img" src="assets/images/menu icon/menu icon/FOLLOW UP.png" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

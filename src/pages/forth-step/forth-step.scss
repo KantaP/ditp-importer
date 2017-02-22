@@ -1,0 +1,31 @@
+page-forth-step {
+
+}
+
+
+.person-form-label {
+    text-align: right;
+}
+
+.form-control {
+    border-radius: 10px !important;
+}
+
+.name-card-block {
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    & > div {
+        display: flex;
+    }
+}
+
+.custom-btn-block {
+
+    margin-top: 10px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}

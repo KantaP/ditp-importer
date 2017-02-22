@@ -1,0 +1,70 @@
+<!--
+  Generated template for the PreRegister page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>PRE REGISTER</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="backToHome()">
+        <ion-icon name="home" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-searchbar (ionInput)="searchEvent($event)"></ion-searchbar>
+  <ion-item class="item-ios-custom" >
+    <ion-row center wrap >
+      <ion-col class="width-flex-50">
+        <button ion-button small color="primary" (click)="openAdvanceSearch()">
+          Advance Search
+        </button>
+      </ion-col>
+    </ion-row>
+    <!--<ion-row center>
+      <ion-col>
+          <span class="font-color-dark">Sort by</span>
+          <select class="font-color-dark border-box-1 border-radius-10" style="border-color:#ccc" [(ngModel)]="sortingSelected">
+            <option [value]="data.value" *ngFor="let data of sortingData">{{data.text}}</option>
+          </select>
+      </ion-col>
+    </ion-row>-->
+  </ion-item>
+  <ion-list>
+    <ion-item class="bg-transparent item-ios-custom" *ngFor="let data of eventData" (click)="goToDetail(data.pre_pid)">
+      <ion-grid class="padding-5">
+        <ion-row class="justify-flex-end">
+          <span class="font-color-dark font-size-10-px">Type: {{data.type}}</span>
+        </ion-row>
+        <ion-row>
+          <span class="font-color-dark font-size-10-px textOverflow">{{data.fullname}}</span>
+        </ion-row>
+        <ion-row>
+          <span class="font-color-dark font-size-10-px textOverflow">{{data.position}}</span>
+        </ion-row>
+        <ion-row>
+          <span class="font-color-dark font-size-10-px textOverflow">{{data.company_name}}</span>
+        </ion-row>
+        <ion-row>
+          <span class="font-color-dark font-size-10-px textOverflow">{{data.address}}</span>
+        </ion-row>
+        <ion-row>
+          <span class="font-color-dark font-size-10-px">Register Date: {{_moment(data.createdate, 'YYYY-MM-DD HH:mm:ss').format('DD / MM / YYYY')}}</span>
+        </ion-row>
+        <ion-row>
+          <span class="font-color-dark font-size-10-px textOverflow">Event Name: {{data.event_name}}</span>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item class="bg-transparent item-ios-custom border-bottom-0-important">
+    <ion-row center class="justify-center">
+        <button ion-button small outline color="primary" (click)="nextPage()">Load more</button>
+    </ion-row>
+  </ion-item>
+  </ion-list>
+</ion-content>

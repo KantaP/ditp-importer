@@ -1,0 +1,44 @@
+<!--
+  Generated template for the Importer page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="bg">
+
+    <div class="flex-container importer">
+        <div class="header">
+            <i *ngIf="showCategories && !showSubCategories" class="fa fa-angle-left" (click)="backToStep3()"></i>
+            <i *ngIf="showCategories && showSubCategories" class="fa fa-angle-left" (click)="backToCategoryPage()"></i>
+            <span>{{title[processing.currentStep-1]}}</span>
+            <i *ngIf="!showCategories" class="fa fa-home" (click)="gotoHome()"></i>
+        </div>
+        <div class="content">
+            <page-first-step *ngIf="processing.currentStep === 1"></page-first-step>
+            <page-second-step *ngIf="processing.currentStep === 2"></page-second-step>
+            <page-third-step *ngIf="processing.currentStep === 3 && !showCategories && !showSubCategories"></page-third-step>
+            <page-categories *ngIf="processing.currentStep ===3 && showCategories && !showSubCategories"></page-categories>
+            <page-subcategories *ngIf="processing.currentStep ===3 && showCategories && showSubCategories"></page-subcategories>
+            <page-forth-step *ngIf="processing.currentStep === 4"></page-forth-step>
+            <page-fifth-step *ngIf="processing.currentStep === 5"></page-fifth-step>
+        </div>
+        <div class="footer">
+            <div class="tab-menu" [ngClass]="{active : processing.currentStep === 1 }">
+                <div class="menu first-step" [ngClass]="{active : processing.currentStep === 1 }"></div>
+            </div>
+            <div class="tab-menu" [ngClass]="{active : processing.currentStep === 2 }">
+                <div class="menu second-step" [ngClass]="{active : processing.currentStep === 2 }"></div>
+            </div>
+            <div class="tab-menu " [ngClass]="{active : processing.currentStep === 3 }">
+                <div class="menu third-step" [ngClass]="{active : processing.currentStep === 3 }"></div>
+            </div>
+            <div class="tab-menu" [ngClass]="{active : processing.currentStep === 4 }">
+                <div class="menu forth-step" [ngClass]="{active : processing.currentStep === 4 }"></div>
+            </div>
+            <div class="tab-menu" [ngClass]="{active : processing.currentStep === 5 }">
+                <div class="menu fifth-step" [ngClass]="{active : processing.currentStep === 5 }"></div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

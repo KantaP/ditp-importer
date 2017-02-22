@@ -1,0 +1,59 @@
+<!--
+  Generated template for the FifthStep page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>fifthStep</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-grid>
+    <ion-row center style="justify-content: center;">
+      <p style="margin-top:10px;">{{today}}</p>
+    </ion-row>
+    <ion-row center style="margin-top:10px">
+      <div class="form-group" style="margin: 0 auto;width: 80%;">
+        <label class="control-label">Title</label>
+        <input type="text" class="form-control" [(ngModel)]="noteNeedForm.comn_title"/>
+      </div>
+    </ion-row>
+    <ion-row center style="margin-top:10px">
+      <div class="form-group" style="margin: 0 auto;width: 80%;">
+        <label class="control-label">Note / Needs</label>
+        <textarea class="form-control" rows="10" [(ngModel)]="noteNeedForm.comn_note">
+        </textarea>
+      </div>
+    </ion-row>
+    <ion-row center style="margin-top:10px">
+      <div class="name-card-block" style="width:80%;">
+        <p>Picture</p>
+        <div class="row-flex custom-row-flex-thrid">
+          <span class="picture-add custom-picture-box" (click)="selectImageNoteNeed()">
+            <i class="fa fa-plus"></i>
+          </span>
+          <span class="picture-add custom-picture-box" 
+          [ngStyle]="{
+            'background-image': 'url(' + up.comni_image_name + ')',
+            'background-size' : '100% 100%',
+            'background-repeat' : 'no-repeat'
+          }"
+          *ngFor="let up of noteNeedImages; let i = index">
+            <i class="fa fa-times fa-2x close-icon" (click)="deleteImaeNoteNeed(up.comni_image_name)"></i>
+          </span>
+        </div>
+      </div>
+    </ion-row>
+    <ion-row center>
+      <div class="form-group custom-btn-block">
+        <button type="button" class="btn btn-lg btn-block btn-default" (click)="saveNoteNeed()">SAVE</button>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

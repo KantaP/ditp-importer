@@ -1,0 +1,123 @@
+<!--
+  Generated template for the FirstStep page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>COMPANY PROFILE</ion-title>
+  </ion-toolbar> 
+
+</ion-header>
+<!--<ion-content>
+    <div>companyprofile: {{companyProfile}}</div>
+</ion-content>-->
+<ion-content class="bg">
+    <form role="form" style="width:90%;margin:0 auto;" (ngSubmit)="gotoSecondStep()">
+        <div class="row-flex">        
+            <!--<input type="file" class="form-control" id="logo" style="display:none;" #input (change)="handleInputChange($event)"  />-->
+            <div class="avatar img-circle img-container" (tap)="selectLogoImage()" 
+            [hidden]="companyProfile.com_logo" >
+                <i class="fa fa-plus icon-size" 
+                ></i>
+            </div>
+            <div class="avatar img-circle" [ngStyle]="{
+                'background-image': 'url(' + companyProfile.com_logo + ')',
+                'background-size' : '100% 100%',
+                'background-repeat' : 'no-repeat'
+            }" (tap)="selectLogoImage()" [hidden]="!companyProfile.com_logo"  >
+            </div>
+        </div>
+        <div class="column-flex">
+            <div class="form-group">
+                <label class="control-label">Country</label>
+                <select class="form-control" [(ngModel)]="companyProfile.cou_code" name="cou_code" >
+                    <option value="">Please select your country</option>
+                    <option [value]="country.cou_code" *ngFor="let country of countrys">{{country.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Company Name</label>
+                <input type="text" class="form-control" [(ngModel)]="companyProfile.com_name_en" name="name" />
+            </div>
+            <div class="address-group">
+                <div class="form-group">
+                    <label class="control-label">Address</label>
+                    <!--<textarea class="form-control" [(ngModel)]="companyProfile.com_address_en" name="address" ></textarea>-->
+                    <input type="text" class="form-control" [(ngModel)]="companyProfile.com_address_en" name="address"  />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Street / Road</label>
+                    <input type="text" class="form-control" [(ngModel)]="companyProfile.com_street_en" name="street" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">City / Town</label>
+                    <input type="text" class="form-control" [(ngModel)]="companyProfile.com_city_en" name="city" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">District</label>
+                    <input type="text" class="form-control" [(ngModel)]="companyProfile.com_state_en" name="state" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sub-District</label>
+                    <input type="text" class="form-control" [(ngModel)]="companyProfile.com_sub_state_en" name="sub_state" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Postal Code</label>
+                    <input type="tel" class="form-control" [(ngModel)]="companyProfile.com_zipcode_en" name="zip" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tel</label>
+                <input type="tel" class="form-control" [(ngModel)]="companyProfile.com_telephone" name="telephone" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Fax</label>
+                <input type="tel" class="form-control" [(ngModel)]="companyProfile.com_fax" name="fax" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Website</label>
+                <input type="text" class="form-control" [(ngModel)]="companyProfile.com_website" name="website" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="companyProfile.com_email" name="email" />
+            </div>
+            <div class="form-group has-feedback has-feedback-left">
+                <label class="control-label">Location</label> 
+                <input type="text" class="form-control" id="location" (click)="openMap()" [(ngModel)]="locationName" name="locationName"/>
+                <i class="form-control-feedback fa fa-map-marker" style="font-size:2em"></i>
+            </div>
+            <div class="picture-block">
+                <!--<input type="file" class="form-control" id="fac1" style="display:none;" #input (change)="handleInputChange($event)"  />-->
+                <span class="picture-add" [ngStyle]="{
+                'background-image': 'url(' + companyProfile.com_factory_pic1 + ')',
+                'background-size' : '100% 100%',
+                'background-repeat' : 'no-repeat'
+                }" (tap)="selectFac1Image()">
+                  <i class="fa fa-plus" [hidden]="companyProfile.com_factory_pic1"></i>
+                </span>
+                <!--<input type="file" class="form-control" id="fac2" style="display:none;" #input (change)="handleInputChange($event)"  />-->
+                <span class="picture-add" [ngStyle]="{
+                'background-image': 'url(' + companyProfile.com_factory_pic2 + ')',
+                'background-size' : '100% 100%',
+                'background-repeat' : 'no-repeat'
+                }" (tap)="selectFac2Image()">
+                  <i class="fa fa-plus" [hidden]="companyProfile.com_factory_pic2"></i>
+                </span>
+                <!--<input type="file" class="form-control" id="fac3" style="display:none;" #input (change)="handleInputChange($event)"  />-->
+                <span class="picture-add" [ngStyle]="{
+                'background-image': 'url(' + companyProfile.com_factory_pic3 + ')',
+                'background-size' : '100% 100%',
+                'background-repeat' : 'no-repeat'
+                }" (tap)="selectFac3Image()">
+                  <i class="fa fa-plus" [hidden]="companyProfile.com_factory_pic3"></i>
+                </span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-block btn-default">NEXT</button>
+            </div>
+        </div>
+    </form>
+</ion-content>

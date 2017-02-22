@@ -1,0 +1,83 @@
+<!--
+  Generated template for the FirstStep page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div>
+    <form role="form" style="width:90%;margin:0 auto;">
+        <div class="row-flex">
+            <!--<img src="assets/images/test.jpg" class="avatar img-circle">-->
+            <div class="avatar img-circle img-container">
+                <i class="fa fa-plus icon-size"></i>
+            </div>
+        </div>
+        <div class="column-flex">
+            <div class="form-group">
+                <label class="control-label">Country</label>
+                <select class="form-control">
+                    <option [value]="country.cou_code" *ngFor="let country of countrys">{{country.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Company Name</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="address-group">
+                <div class="form-group">
+                    <label class="control-label">Address</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Street / Road</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">City / Town</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">District</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sub-District</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Postal Code</label>
+                    <input type="number" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tel</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Fax</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Website</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="form-group has-feedback has-feedback-left">
+                <label class="control-label">Location</label>
+                <input type="text" class="form-control" />
+                <i class="form-control-feedback fa fa-map-marker" style="font-size:2em"></i>
+            </div>
+            <div class="picture-block">
+                <span class="picture-add">
+                  <i class="fa fa-plus"></i>
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-lg btn-block btn-default" (click)="gotoSecondStep()">NEXT</button>
+            </div>
+        </div>
+    </form>
+</div>
